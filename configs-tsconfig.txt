@@ -1,0 +1,28 @@
+noEmitOnError -> valor padrão é "false", caso tenha algum erro o compilador vai avisar, 
+mas será gerado a nova versão do arquivo .js, para que não seja compilado o arquivo JS com erro
+basta setar o valor como "true".
+
+target -> versão do javascript que será usado no arquivo compilado.
+
+sourceMap -> Gera um arquivo .js.map, que tem como objetivo ajudar a debugar o código original,
+se foi criado um código em TypeScript, através desse sourceMap é possível debugar o código TypeScript
+original criado no momento do desenvolvimento do código em vez do código JavaScript compilado, ou seja,
+o sourceMap faz um mapeamento nas linhas que estão sendo executadas no browser e as linahs do arquivo
+original (arquivo TypeScript nesse caso, que o browser não entende).
+
+noImplicitAny -> por padrão o valor é "true", que diz que será gerado pelo compilador quando o tipo
+"any" foi inferido implicitamente.
+
+strictNullChecks -> padrão é "true", impede que a variável seja utilizada antes de receber um valor.
+
+noUnusedParameters -> padrão é "false", gera um erro de parâmetros não utlizados.
+
+noUnusedLocals -> padrão é "false", gera um erro de variáveis locais não utilizadas.
+
+module -> Define o tipo de módulo que será usado no arquivo, por padrão é usado o CommonJS, que utiliza 
+o estilo do NodeJs.
+
+outDir -> define o diretório de saída do arquivo compilado.
+
+outFile -> Define um único arquivo .js com todas os arquivos .ts compilados. Mas para usar esse padrão
+deve utilizar a propriedade "module" como "system".
