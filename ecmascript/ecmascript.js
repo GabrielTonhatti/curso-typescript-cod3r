@@ -160,11 +160,11 @@ function esperar3sPromise() {
     });
 }
 // esperar3sPromise().then(dado => console.log(dado));
-fetch('https://swapi.dev/api/people/1')
-    .then((res) => res.json())
-    .then((personagem => personagem.films))
-    .then((films) => fetch(films[0]))
-    .then((resFilme) => resFilme.json())
-    .then((filme) => console.log(filme.title))
-    .catch(err => console.log(`Cacth: ${err}`));
+// fetch('https://swapi.dev/api/people/1')
+//     .then((res: Response) => res.json())
+//     .then((personagem => personagem.films))
+//     .then((films: string[]) => fetch(films[0]))
+//     .then((resFilme: Response) => resFilme.json())
+//     .then((filme: any) => console.log(filme.title))
+//     .catch(err => console.log(`Cacth: ${err}`));
 //# sourceMappingURL=ecmascript.js.map
