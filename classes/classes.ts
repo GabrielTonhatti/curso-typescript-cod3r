@@ -161,7 +161,7 @@ class Matematica {
     public static PI: number = 3.1416;
 
     public static areaCirc(raio: number): number {
-        return this.PI * (raio ** 2);
+        return Matematica.PI * (raio ** 2);
     }
 }
 
@@ -174,3 +174,69 @@ class Matematica {
 
 // console.log(new Matematica().areaCirc(4));
 console.log(Matematica.areaCirc(4));
+
+// Classes abstrata
+abstract class Calculo {
+    protected resultado: number = 0;
+
+    public abstract executar(...numeros: number[]): void;
+
+    public getResultado(): number {
+        return this.resultado;
+    }
+}
+
+class Soma extends Calculo {
+
+    public executar(...numeros: number[]): void {
+        this.resultado = numeros.reduce((t, a) => t + a);
+    }
+
+}
+
+class Multiplicacao extends Calculo {
+
+    public executar(...numeros: number[]): void {
+        this.resultado = numeros.reduce((t, a) => t * a);
+    }
+
+}
+
+let c1: Calculo = new Soma();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado());
+
+c1 = new Multiplicacao();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado());
+
+class Unico {
+    private static instance: Unico = new Unico();
+
+    private constructor() { }
+
+    public static getInstance(): Unico {
+        return Unico.instance;
+    }
+
+    public agora(): Date {
+        return new Date();
+    }
+}
+
+// const errado = new Unico();
+console.log(Unico.getInstance().agora());
+
+// Somente leitura
+class Aviao {
+    public readonly modelo: string;
+
+    constructor(modelo: string, public readonly prefixo: string) {
+        this.modelo = modelo;
+    }
+}
+
+const turboHelice = new Aviao('Tu-114', 'PT-ABC');
+// turboHelice.modelo = 'DC-8';
+// turboHelice.prefixo = 'PT-DEF';
+console.log(turboHelice);
