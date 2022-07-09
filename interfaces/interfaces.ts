@@ -96,7 +96,7 @@ interface Object {
     log(): void;
 }
 
-Object.prototype.log = function () {
+Object.prototype.log = function (): void {
     console.log(this.toString());
 }
 
