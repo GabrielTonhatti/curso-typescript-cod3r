@@ -102,5 +102,39 @@ console.log(fila.proximo());
 fila.imprimir();
 const novaFila = new Fila(1, 2, 3);
 novaFila.imprimir();
-// const outraFila = new Fila<boolean>(true, false);
+class Mapa {
+    constructor() {
+        this._itens = [];
+    }
+    obter(chave) {
+        const resultado = this._itens
+            .filter((item) => item.chave === chave);
+        return resultado ? resultado[0] : null;
+    }
+    colocar(item) {
+        const encontrado = this.obter(item.chave);
+        if (encontrado) {
+            encontrado.valor = item.valor;
+        }
+        else {
+            this._itens.push(item);
+        }
+    }
+    limpar() {
+        this._itens = new Array();
+    }
+    imprimir() {
+        console.log(this._itens);
+    }
+}
+const mapa = new Mapa();
+mapa.colocar({ chave: 1, valor: 'Pedro' });
+mapa.colocar({ chave: 2, valor: 'Rebeca' });
+mapa.colocar({ chave: 3, valor: 'Maria' });
+mapa.colocar({ chave: 1, valor: 'Gustavo' });
+console.log(mapa.obter(2));
+mapa.imprimir();
+mapa.imprimir();
+mapa.limpar();
+mapa.imprimir();
 //# sourceMappingURL=generics.js.map

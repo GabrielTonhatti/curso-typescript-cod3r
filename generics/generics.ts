@@ -135,3 +135,54 @@ novaFila.imprimir();
 
 // const outraFila = new Fila<boolean>(true, false);
 
+// Desafio Mapa
+// Array de Objetos (Chave/Valor) -> itens
+// Métodos: obter(Chave), colocar({ C, V })
+// limpar(), imprimir()
+
+type Par<C, V> = { chave: C, valor: V };
+class Mapa<C, V> {
+    private _itens: Array<Par<C, V>>;
+
+    public constructor() {
+        this._itens = [];
+    }
+
+    public obter(chave: C): Par<C, V> | null {
+        const resultado: Array<Par<C, V>> = this._itens
+            .filter((item: Par<C, V>): boolean => item.chave === chave);
+
+        return resultado ? resultado[0] : null;
+    }
+
+    public colocar(item: Par<C, V>): void {
+        const encontrado: Par<C, V> | null = this.obter(item.chave);
+
+        if (encontrado) {
+            encontrado.valor = item.valor;
+        } else {
+            this._itens.push(item);
+        }
+    }
+
+    public limpar(): void {
+        this._itens = new Array<Par<C, V>>();
+    }
+
+    public imprimir(): void {
+        console.log(this._itens);
+    }
+
+}
+
+const mapa: Mapa<number, string> = new Mapa<number, string>();
+mapa.colocar({ chave: 1, valor: 'Pedro' });
+mapa.colocar({ chave: 2, valor: 'Rebeca' });
+mapa.colocar({ chave: 3, valor: 'Maria' });
+mapa.colocar({ chave: 1, valor: 'Gustavo' });
+
+console.log(mapa.obter(2));
+mapa.imprimir();
+mapa.imprimir();
+mapa.limpar();
+mapa.imprimir();
