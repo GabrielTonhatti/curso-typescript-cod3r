@@ -26,3 +26,5 @@ outDir -> define o diretório de saída do arquivo compilado.
 
 outFile -> Define um único arquivo .js com todas os arquivos .ts compilados. Mas para usar esse padrão
 deve utilizar a propriedade "module" como "system".
+
+experimentalDecorators -> Habilita o uso de decoradores no TypeScript.
