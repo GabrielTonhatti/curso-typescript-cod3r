@@ -4,7 +4,7 @@ interface IContadorValorProps {
     contador: number;
 }
 
-const contador: Function = (props: IContadorValorProps): ReactElement => (
+const contadorValor: Function = (props: IContadorValorProps): ReactElement => (
     <p>{props.contador}</p>
 );
-export default contador;
+export default contadorValor;
