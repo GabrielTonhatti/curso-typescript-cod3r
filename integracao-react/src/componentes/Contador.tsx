@@ -27,8 +27,8 @@ export default class Contador extends Component<
         return (
             <div>
                 <ContadorValor contador={this.state.valor} />
-                <button onClick={() => this.setValor(10)}>+</button>
-                <button onClick={() => this.setValor(-10)}>-</button>
+                <button onClick={(): void => this.setValor(10)}>+</button>
+                <button onClick={(): void => this.setValor(-10)}>-</button>
             </div>
         )
     }
